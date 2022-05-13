@@ -1,8 +1,13 @@
 def print_board(board):
-    print("\t1\t2\t3\n")
-    r = 1
+    size = len(board)
+    
+    for i in range(size):
+        print(f"\t{i + 1}", end="")
+    print("\n")
+
+    row_number = 1
     for row in board:
-        lights = f"{r}\t"
+        lights = f"{row_number}\t"
         for light in row:
 
             if light:
@@ -10,7 +15,7 @@ def print_board(board):
             else:
                 lights += "o\t"
         print(lights, "\n")
-        r += 1
+        row_number += 1
 
 def game_over(board):
     for row in board:
