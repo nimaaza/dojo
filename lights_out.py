@@ -86,7 +86,7 @@ while(True):
     except:
         continue
 
-board_row = [True for i in range(board_size)]
+board_row = ['r' for i in range(board_size)]
 board = [board_row[:] for i in range(board_size)]
 
 input("Enter the row and column number of the light you want to toggle separated with space (hit enter to continue).")
