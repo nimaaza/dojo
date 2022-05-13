@@ -32,12 +32,14 @@ def toggle_light(board, row, column):
     if column + 1 < 3:
         board[row][column + 1] = not board[row][column + 1]
 
-    return board
+    # return board
 
 board = [[True, True, True], [True, True, True], [True, True, True]]
 prompt = "Which light would you like to toggle (row column)? "
-
-print("(enter a random character other than 1, 2, and 3 to accept defeat.)\n\n")
+print("Enter a random character other than 1, 2, and 3 to accept defeat (hit enter to continue).")
+input()
+print("Enter the row and column number of the light you want to toggle separated with space (hit enter to start).\n\n")
+input()
 
 while(not game_over(board)):
     print_board(board)
@@ -45,9 +47,9 @@ while(not game_over(board)):
         input_str = input(prompt).split(' ')
         row, column = map(lambda x : int(x) - 1, input_str)
     except:
-        print("loser...")
+        print("Bye loser!")
         break
-    board = toggle_light(board, row, column)
+    toggle_light(board, row, column)
 else:
     print("\n")
     print("*******************************")
