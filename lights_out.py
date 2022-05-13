@@ -1,6 +1,6 @@
 def print_board(board):
     size = len(board)
-    
+
     for i in range(size):
         print(f"\t{i + 1}", end="")
     print("\n")
@@ -9,11 +9,7 @@ def print_board(board):
     for row in board:
         lights = f"{row_number}\t"
         for light in row:
-
-            if light:
-                lights += "*\t"
-            else:
-                lights += "o\t"
+            lights += f"{light}\t"
         print(lights, "\n")
         row_number += 1
 
