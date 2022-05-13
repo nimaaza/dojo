@@ -21,19 +21,25 @@ def game_over(board):
 
     return True
 
+def next_light_state(now):
+    light_states = ['r', 'g', 'b', 'o']
+    state_index = light_states.index(now)
+    next_state_index = (state_index + 1) % len(light_states)
+    return light_states[next_state_index]
+
 def toggle_light(board, row, column):
     size = len(board)
     
-    board[row][column] = not board[row][column]
+    board[row][column] = next_light_state(board[row][column])
 
     if row - 1 >= 0:
-        board[row - 1][column] = not board[row - 1][column]
+        board[row - 1][column] = next_light_state(board[row - 1][column])
     if row + 1 < size:
-        board[row + 1][column] = not board[row + 1][column]
+        board[row + 1][column] = next_light_state(board[row + 1][column])
     if column - 1 >= 0:
-        board[row][column - 1] = not board[row][column - 1]
+        board[row][column - 1] = next_light_state(board[row][column - 1])
     if column + 1 < size:
-        board[row][column + 1] = not board[row][column + 1]
+        board[row][column + 1] = next_light_state(board[row][column + 1])
 
 def acceptable_numbers(max):
     s = ""
