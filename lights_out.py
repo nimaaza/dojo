@@ -1,3 +1,5 @@
+import random
+
 OFF_STATE = 'o'
 
 def get_light_states():
@@ -49,6 +51,13 @@ def toggle_light(board, row, column):
     if column + 1 < size:
         board[row][column + 1] = next_light_state(board[row][column + 1])
 
+def random_play(board, rounds):
+    size = len(board) - 1
+    for i in range(rounds):
+        row = random.randint(0, size)
+        column = random.randint(0, size)
+        toggle_light(board, row, column)
+
 def acceptable_numbers(max):
     s = ""
     for i in range(max):
@@ -98,6 +107,7 @@ board_size = 5
 
 board_row = [get_light_states()[0] for i in range(board_size)]
 board = [board_row[:] for i in range(board_size)]
+random_play(board, rounds=3)
 
 input("Enter the row and column number of the light you want to toggle separated with space (hit enter to continue).")
 input(f"Enter a random character other than {acceptable_numbers(board_size)} to accept defeat (hit enter to start).")
