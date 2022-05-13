@@ -1,4 +1,11 @@
 OFF_STATE = 'o'
+
+def get_light_states():
+    # light_states = ['r', 'g', 'b']
+    light_states = ['*']
+    light_states.append(OFF_STATE)
+    return light_states[:]
+
 def print_board(board):
     size = len(board)
 
@@ -23,7 +30,7 @@ def game_over(board):
     return True
 
 def next_light_state(now):
-    light_states = ['r', 'g', 'b', 'o']
+    light_states = get_light_states()
     state_index = light_states.index(now)
     next_state_index = (state_index + 1) % len(light_states)
     return light_states[next_state_index]
@@ -89,7 +96,7 @@ while(True):
     except:
         continue
 
-board_row = ['r' for i in range(board_size)]
+board_row = [get_light_states()[0] for i in range(board_size)]
 board = [board_row[:] for i in range(board_size)]
 
 input("Enter the row and column number of the light you want to toggle separated with space (hit enter to continue).")
