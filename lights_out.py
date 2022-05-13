@@ -16,7 +16,7 @@ def print_board(board):
 def game_over(board):
     for row in board:
         for light in row:
-            if (light):
+            if (light != 'o'):
                 return False
 
     return True
