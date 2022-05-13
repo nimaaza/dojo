@@ -26,15 +26,17 @@ def game_over(board):
     return True
 
 def toggle_light(board, row, column):
+    size = len(board)
+    
     board[row][column] = not board[row][column]
 
     if row - 1 >= 0:
         board[row - 1][column] = not board[row - 1][column]
-    if row + 1 < 3:
+    if row + 1 < size:
         board[row + 1][column] = not board[row + 1][column]
     if column - 1 >= 0:
         board[row][column - 1] = not board[row][column - 1]
-    if column + 1 < 3:
+    if column + 1 < size:
         board[row][column + 1] = not board[row][column + 1]
 
 def acceptable_numbers(max):
