@@ -68,6 +68,14 @@ def input_row_and_column(board_size):
                 print("Row or column not in a valid range. Try again!")
                 continue
             return row, column
+
+def accept_defeat():
+    answer = input("Accept defeat? (y/N) ").strip().lower()
+    if answer == '':
+        answer = 'n'
+    
+    return answer == 'y'
+
 board_size = 0
 
 while(True):
@@ -90,8 +98,12 @@ while(not game_over(board)):
     try:
         row, column = input_row_and_column(board_size)
     except:
-        print("Bye loser!")
-        break
+        if accept_defeat():
+            print("Bye loser!")
+            break
+        else:
+            continue
+
     toggle_light(board, row, column)
 else:
     print("\n")
