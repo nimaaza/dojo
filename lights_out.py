@@ -32,8 +32,6 @@ def toggle_light(board, row, column):
     if column + 1 < 3:
         board[row][column + 1] = not board[row][column + 1]
 
-    # return board
-
 board = [[True, True, True], [True, True, True], [True, True, True]]
 prompt = "Which light would you like to toggle (row column)? "
 print("Enter a random character other than 1, 2, and 3 to accept defeat (hit enter to continue).")
