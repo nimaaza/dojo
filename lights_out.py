@@ -50,6 +50,24 @@ def acceptable_numbers(max):
     
     return s
 
+def input_row_and_column(board_size):
+    prompt = "Which light would you like to toggle (row column)? "
+
+    while(True):
+        input_str = input(prompt).strip().split(' ')
+        row_and_column = list(map(lambda x : int(x) - 1, input_str))
+        if len(row_and_column) < 2:
+            print("Give both row and column number!")
+            continue
+        elif len(row_and_column) > 2:
+            print("Just give a row and column number and nothing more!")
+            continue
+        else:
+            row, column = row_and_column
+            if row > board_size or column > board_size or row < 0 or column < 0:
+                print("Row or column not in a valid range. Try again!")
+                continue
+            return row, column
 board_size = 0
 
 while(True):
@@ -68,9 +86,9 @@ input(f"Enter a random character other than {acceptable_numbers(board_size)} to 
 
 while(not game_over(board)):
     print_board(board)
+
     try:
-        input_str = input(prompt).split(' ')
-        row, column = map(lambda x : int(x) - 1, input_str)
+        row, column = input_row_and_column(board_size)
     except:
         print("Bye loser!")
         break
