@@ -86,15 +86,15 @@ def accept_defeat():
     
     return answer == 'y'
 
-board_size = 0
+board_size = 5
 
-while(True):
-    try:
-        board_size = int(input("What board size do you like? 3x3 or 5x5?\nEnter either 3 or 5: "))
-        if board_size == 3 or board_size == 5:
-            break
-    except:
-        continue
+# while(True):
+#     try:
+#         board_size = int(input("What board size do you like? 3x3 or 5x5?\nEnter either 3 or 5: "))
+#         if board_size == 3 or board_size == 5:
+#             break
+#     except:
+#         continue
 
 board_row = [get_light_states()[0] for i in range(board_size)]
 board = [board_row[:] for i in range(board_size)]
