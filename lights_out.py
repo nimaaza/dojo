@@ -1,3 +1,4 @@
+OFF_STATE = 'o'
 def print_board(board):
     size = len(board)
 
@@ -16,7 +17,7 @@ def print_board(board):
 def game_over(board):
     for row in board:
         for light in row:
-            if (light != 'o'):
+            if (light != OFF_STATE):
                 return False
 
     return True
