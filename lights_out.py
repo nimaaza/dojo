@@ -34,10 +34,19 @@ def toggle_light(board, row, column):
 
 board = [[True, True, True], [True, True, True], [True, True, True]]
 prompt = "Which light would you like to toggle (row column)? "
-print("Enter a random character other than 1, 2, and 3 to accept defeat (hit enter to continue).")
-input()
-print("Enter the row and column number of the light you want to toggle separated with space (hit enter to start).\n\n")
-input()
+
+board_size = 0
+
+while(True):
+    try:
+        board_size = int(input("What board size do you like? 3x3 or 5x5?\nEnter either 3 or 5: "))
+        if board_size == 3 or board_size == 5:
+            break
+    except:
+        continue
+
+board_row = [True for i in range(board_size)]
+board = [board_row[:] for i in range(board_size)]
 
 while(not game_over(board)):
     print_board(board)
